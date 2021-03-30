@@ -15,6 +15,9 @@ services:
     build:
       dockerfile: Dockerfile
       context: ./client
+    depends_on: 
+      - api
+      - nginx
     volumes:
       - /app/node_modules
       - ./client:/app
