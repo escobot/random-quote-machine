@@ -25,10 +25,15 @@ const Quotes: React.FC<{}> = () => {
       <div className="quotes">
         {quotes &&
           quotes.map((quote, index) => {
+            let url = `https://twitter.com/intent/tweet?text=${quote.quote} - ${quote.author}`;
             return (
-              <div className="book" key={index}>
+              <div className="quote" key={index}>
                 <h2>{quote.quote}</h2>
                 <h2>{quote.author}</h2>
+                <a className="twitter-share-button"
+                  href={url}>
+                  Tweet
+                </a>
               </div>
             );
           })}
