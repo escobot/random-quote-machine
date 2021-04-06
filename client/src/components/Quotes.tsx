@@ -7,7 +7,12 @@ const Quotes: React.FC<{}> = () => {
   const [quotes, setQuote] = useState<any[]>([])
 
   const fetchQuotes = async () => {
-    const response = await axios.get('/api/quotes');
+    const config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      }
+    }    
+    const response = await axios.get('/api/quotes', config);
     setQuote(response.data.quotes);
   };
 
