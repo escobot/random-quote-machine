@@ -1,11 +1,14 @@
 version: '3'
 services:
   api:
-    image: 'pbgnz/random-quote-api:v1.1.0'
+    image: 'pbgnz/random-quote-api:1.2.1'
     ports:
       - '8000:8000'
   nginx:
     restart: always
+    depends_on:
+      - api
+      - client
     build:
       dockerfile: Dockerfile
       context: ./nginx
@@ -15,9 +18,6 @@ services:
     build:
       dockerfile: Dockerfile
       context: ./client
-    depends_on: 
-      - api
-      - nginx
     volumes:
       - /app/node_modules
       - ./client:/app

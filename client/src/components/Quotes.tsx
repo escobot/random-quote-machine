@@ -15,7 +15,7 @@ const Quotes: React.FC<{}> = () => {
         "Access-Control-Allow-Origin": "*",
       }
     }    
-    const response = await axios.get('https://pbgnz-random-quotes-api.herokuapp.com/api/quotes', config);
+    const response = await axios.get('/api/quotes', config);
     setQuote(response.data.quotes);
     setLoading(false);
   };
